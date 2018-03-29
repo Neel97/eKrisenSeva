@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,9 +15,9 @@
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 
-	<!-- font-awesome icons CSS-->
+	<!-- font-awesome icons CSS -->
 	<link href="css/font-awesome.css" rel="stylesheet"> 
-	<!-- //font-awesome icons CSS-->
+	<!-- //font-awesome icons CSS -->
 
 	<!-- side nav css file -->
 	<link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
@@ -24,15 +25,15 @@
 
 	<!-- js-->
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/custom/server.config.js"></script>
-
+	<script src="js/modernizr.custom.js"></script>
 
 	<!--webfonts-->
 	<!-- <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet"> -->
-	<!--//webfonts-->
+	<!--//webfonts--> 
 
 	<!-- Metis Menu -->
-
+	<script src="js/metisMenu.min.js"></script>
+	<script src="js/custom.js"></script>
 	<link href="css/custom.css" rel="stylesheet">
 	<!--//Metis Menu -->
 
@@ -44,38 +45,62 @@
 			<aside class="sidebar-left">
 				<nav class="navbar navbar-inverse">
 					<div class="navbar-header">
-						<!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button> -->
+						
 						<h1><a class="navbar-brand" href="dashboard.html"><span class="fa fa-area-chart"></span> e-KrisenSeva<span class="dashboard_text"></span></a></h1>
 					</div>
+					
 					<ul class="sidebar-menu">
 						<li class="header">MAIN NAVIGATION</li>
 						<li class="treeview">
-							<a href="index.html">
-								<i class="fa fa-dashboard"></i> <span>Login</span>
+							<a href="dashboard.html">
+								<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 							</a>
 						</li>
 
 						<li class="treeview">
-							<a href="signup.html">
+							<a href="maps.html">
 								<i class="fa fa-pie-chart"></i>
-								<span>Signup</span>
+								<span>Maps</span>
 								<span class="label label-primary pull-right">new</span>
 							</a>
 						</li>
+						
 
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-envelope"></i> <span>Messagebox </span>
+								<i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span>
+							</a>
+							<ul class="treeview-menu">
+								<li><a href="inbox.html"><i class="fa fa-angle-right"></i> Mail Inbox </a></li>
+								<li><a href="compose.html"><i class="fa fa-angle-right"></i> Compose Mail </a></li>
+							</ul>
+						</li>
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-folder"></i> <span>Examples</span>
+								<i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li><a href="index.html"><i class="fa fa-angle-right"></i> Login</a></li>
+								<li><a href="signup.html"><i class="fa fa-angle-right"></i> Register</a></li>
+								<li><a href="404.html"><i class="fa fa-angle-right"></i> 404 Error</a></li>
+								<li><a href="500.html"><i class="fa fa-angle-right"></i> 500 Error</a></li>
+								<li><a href="blank-page.html"><i class="fa fa-angle-right"></i> Blank Page</a></li>
+							</ul>
+						</li>
+						<li class="header">LABELS</li>
+						<li><a href="#"><i class="fa fa-angle-right text-red"></i> <span>Important</span></a></li>
+						<li><a href="#"><i class="fa fa-angle-right text-yellow"></i> <span>Warning</span></a></li>
+						<li><a href="#"><i class="fa fa-angle-right text-aqua"></i> <span>Information</span></a></li>
 					</ul>
-					
-					
+
 					<!-- /.navbar-collapse -->
 				</nav>
 			</aside>
 		</div>
-		<!--left-fixed -navigation-->		
+		<!--left-fixed -navigation-->
+
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 			<div class="header-left">
@@ -83,7 +108,7 @@
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div class="profile_details_left" style="visibility: hidden;"><!--notifications of menu start -->
+				<div class="profile_details_left"><!--notifications of menu start -->
 					<ul class="nofitications-dropdown">
 						<li class="dropdown head-dpdn">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">4</span></a>
@@ -266,31 +291,168 @@
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
-			<div class="main-page login-page ">
-				<h2 class="title1">Login</h2>
-				<div class="widget-shadow">
-					<div class="login-body">
-						<form id="loginForm">
-							<input type="email" class="user" name="email" placeholder="Enter Your Email" required="">
-							<input type="password" name="password" class="lock" placeholder="Password" required="">
-							<div class="forgot-grid">
-								<!-- <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label> -->
-								<div class="forgot">
-									<a href="#">forgot password?</a>
+			<div class="main-page compose">
+				<h2 class="title1">Compose Message Page</h2>
+				<div class="col-md-4 compose-left">
+					<div class="folder widget-shadow">
+						<ul>
+							<li class="head">Contact Details</li>
+							<div class="scrollbar" id="style-2">
+								<div class="card-body p-b-20">
+									<div class="list-group">
+										<a class="list-group-item media" href="">
+											<div class="pull-left">
+												<img class="lg-item-img" src="images/4.jpg" alt="">
+											</div>
+											<div class="media-body">
+												<div class="pull-left">
+													<div class="lg-item-heading">Alexander</div>
+													<small class="lg-item-text">example@gmail.com</small><br>
+													<small class="lg-item-text">+91 99999 77777</small>
+												</div>
+												<div class="pull-right">
+													<div class="lg-item-heading">Ceo</div>
+												</div>
+											</div>
+										</a>
+										<a class="list-group-item media" href="">
+											<div class="pull-left">
+												<img class="lg-item-img" src="images/1.jpg" alt="">
+											</div>
+											<div class="media-body">
+												<div class="pull-left">
+													<div class="lg-item-heading">Jackson Jacob</div>
+													<small class="lg-item-text">example@hotmail.com</small><br>
+													<small class="lg-item-text">+91 99999 77777</small>
+												</div>
+												<div class="pull-right">
+													<div class="lg-item-heading">Director</div>
+												</div>
+											</div>
+										</a>
+										<a class="list-group-item media" href="">
+											<div class="pull-left">
+												<img class="lg-item-img" src="images/3.jpg" alt="">
+											</div>
+											<div class="media-body">
+												<div class="pull-left">
+													<div class="lg-item-heading">Merina lisa</div>
+													<small class="lg-item-text">example1@gmail.com</small><br>
+													<small class="lg-item-text">+91 99999 77777</small>
+												</div>
+												<div class="pull-right">
+													<div class="lg-item-heading">Manager</div>
+												</div>
+											</div>
+										</a>
+										<a class="list-group-item media" href="">
+											<div class="pull-left">
+												<img class="lg-item-img" src="images/1.jpg" alt="">
+											</div>
+											<div class="media-body">
+												<div class="pull-left">
+													<div class="lg-item-heading">Michael</div>
+													<small class="lg-item-text">example1@hotmail.com</small>
+													<small class="lg-item-text">+91 99999 77777</small>
+												</div>
+												<div class="pull-right">
+													<div class="lg-item-heading">Assistant</div>
+												</div>
+											</div>
+										</a>
+
+
+									</div>
 								</div>
-								<div class="clearfix"> </div>
 							</div>
-							<input type="submit" name="Sign In" value="Sign In">
-						</form>
+
+						</ul>
+					</div>
+					<div class="chat-grid widget-shadow">
+						<ul>
+							<li class="head">Friends (Online) </li>
+							<li>
+								<a href="#">
+									<div class="chat-left">
+										<img class="img-circle" src="images/i1.png" alt="">
+										<label class="small-badge"></label>
+									</div>
+									<div class="chat-right">
+										<p>Andrew Josifn</p>
+										<h6>Nullam quis risus eget </h6>
+									</div>
+									<div class="clearfix"> </div>	
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="chat-left">
+										<img class="img-circle" src="images/i4.png" alt="">
+										<label class="small-badge bg-green"></label>
+									</div>
+									<div class="chat-right">
+										<p>Justen Ferry</p>
+										<h6>Urna mollis ornare vel</h6>
+									</div>
+									<div class="clearfix"> </div>	
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="chat-left">
+										<img class="img-circle" src="images/i3.png" alt="">
+										<label class="small-badge bg-green"></label>
+									</div>
+									<div class="chat-right">
+										<p>Brown Andy </p>
+										<h6>Quis risus ullam neget </h6>
+									</div>
+									<div class="clearfix"> </div>	
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="chat-left">
+										<img class="img-circle" src="images/i4.png" alt="">
+										<label class="small-badge"></label>
+									</div>
+									<div class="chat-right">
+										<p>Deos Jhon</p>
+										<h6>Mollis ornare Urna vel</h6>
+									</div>
+									<div class="clearfix"> </div>	
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
+				<div class="col-md-8 compose-right widget-shadow">
+					<div class="panel-default">
+						<div class="panel-heading">
+							Compose New Message 
+						</div>
+						<div class="panel-body">
+							<div class="alert alert-info">
+								Please fill details to send a new message
+							</div>
+							<form class="com-mail">
+								<input type="text" class="form-control1 control3" placeholder="To :">
+								<input type="text" class="form-control1 control3" placeholder="Subject :">
+								<textarea rows="6" class="form-control1 control2" placeholder="Message :" ></textarea>
 
+								<input type="submit" value="Send Message"> 
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>	
 			</div>
 		</div>
 		<!--footer-->
 		<div class="footer">
 			<p>&copy; 2018 e-KrisenSeva All Rights Reserved | Design by Team An0nymoX</p>
 		</div>
+
 		<!--//footer-->
 	</div>
 
@@ -330,33 +492,6 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.js"> </script>
-	<!-- //Bootstrap Core JavaScript -->
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#loginForm').submit(function(event) {
-				console.log(serverName);
-				event.preventDefault();
-				$.ajax({
-					crossDomain: true,
-					xhrFields:{
-						withCredentials: true
-					},
-					type: 'post',
-					url: serverName + "php/RequestHandler.php?action=login",
-					data: $('#loginForm').serialize(),
-					dataType:  'json',
-					success: function(data){
-						if(data == "loginError")
-							console.log("Inccorect username or password.");
-						else
-							window.location.href = data;
-						console.log(data);
-					}
-				});
-			});
-		});
-	</script>
 
 </body>
 </html>

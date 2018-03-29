@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,9 +15,9 @@
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 
-	<!-- font-awesome icons CSS-->
+	<!-- font-awesome icons CSS -->
 	<link href="css/font-awesome.css" rel="stylesheet"> 
-	<!-- //font-awesome icons CSS-->
+	<!-- //font-awesome icons CSS -->
 
 	<!-- side nav css file -->
 	<link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
@@ -24,18 +25,36 @@
 
 	<!-- js-->
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/custom/server.config.js"></script>
-
+	<script src="js/modernizr.custom.js"></script>
 
 	<!--webfonts-->
 	<!-- <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet"> -->
-	<!--//webfonts-->
+	<!--//webfonts--> 
+	<script type="text/javascript">
 
+		$(document).ready(function(){
+			$('#disablebutton').click(function(){
+				if($('.field_disable').prop('disabled'))
+				{
+					$('.field_disable').prop('disabled', false)
+				}
+				else{
+					$('.field_disable').prop('disabled', true)
+				}
+			});
+		})
+
+	</script>
 	<!-- Metis Menu -->
-
+	<script src="js/metisMenu.min.js"></script>
+	<script src="js/custom.js"></script>
 	<link href="css/custom.css" rel="stylesheet">
 	<!--//Metis Menu -->
-
+	<style type="text/css">
+	.bs-example{
+		margin: 20px;
+	}
+</style>
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
@@ -44,38 +63,61 @@
 			<aside class="sidebar-left">
 				<nav class="navbar navbar-inverse">
 					<div class="navbar-header">
-						<!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button> -->
+
 						<h1><a class="navbar-brand" href="dashboard.html"><span class="fa fa-area-chart"></span> e-KrisenSeva<span class="dashboard_text"></span></a></h1>
 					</div>
+
 					<ul class="sidebar-menu">
 						<li class="header">MAIN NAVIGATION</li>
 						<li class="treeview">
-							<a href="index.html">
-								<i class="fa fa-dashboard"></i> <span>Login</span>
+							<a href="dashboard.html">
+								<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 							</a>
 						</li>
 
 						<li class="treeview">
-							<a href="signup.html">
+							<a href="maps.html">
 								<i class="fa fa-pie-chart"></i>
-								<span>Signup</span>
+								<span>Maps</span>
 								<span class="label label-primary pull-right">new</span>
 							</a>
 						</li>
+						
 
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-envelope"></i> <span>Messagebox </span>
+								<i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span>
+							</a>
+							<ul class="treeview-menu">
+								<li><a href="inbox.html"><i class="fa fa-angle-right"></i> Mail Inbox </a></li>
+								<li><a href="compose.html"><i class="fa fa-angle-right"></i> Compose Mail </a></li>
+							</ul>
+						</li>
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-folder"></i> <span>Examples</span>
+								<i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li><a href="index.html"><i class="fa fa-angle-right"></i> Login</a></li>
+								<li><a href="signup.html"><i class="fa fa-angle-right"></i> Register</a></li>
+								<li><a href="chat.html"><i class="fa fa-angle-right"></i> Chat</a></li>
+
+							</ul>
+						</li>
+						<li class="header">LABELS</li>
+						<li><a href="#"><i class="fa fa-angle-right text-red"></i> <span>Important</span></a></li>
+						<li><a href="#"><i class="fa fa-angle-right text-yellow"></i> <span>Warning</span></a></li>
+						<li><a href="#"><i class="fa fa-angle-right text-aqua"></i> <span>Information</span></a></li>
 					</ul>
-					
-					
+
 					<!-- /.navbar-collapse -->
 				</nav>
 			</aside>
 		</div>
-		<!--left-fixed -navigation-->		
+		<!--left-fixed -navigation-->
+
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 			<div class="header-left">
@@ -83,7 +125,7 @@
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div class="profile_details_left" style="visibility: hidden;"><!--notifications of menu start -->
+				<div class="profile_details_left"><!--notifications of menu start -->
 					<ul class="nofitications-dropdown">
 						<li class="dropdown head-dpdn">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">4</span></a>
@@ -266,24 +308,150 @@
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
-			<div class="main-page login-page ">
-				<h2 class="title1">Login</h2>
-				<div class="widget-shadow">
-					<div class="login-body">
-						<form id="loginForm">
-							<input type="email" class="user" name="email" placeholder="Enter Your Email" required="">
-							<input type="password" name="password" class="lock" placeholder="Password" required="">
-							<div class="forgot-grid">
-								<!-- <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label> -->
-								<div class="forgot">
-									<a href="#">forgot password?</a>
+			<div class="main-page">
+				
+
+
+				<div class="inline-form widget-shadow">
+					<div class="form-title">
+						<h4>Add Shelter Official</h4>
+					</div>
+
+					<div class="bs-example">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Sr. No.</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Shelter</th>
+									<th>Email</th>
+									<th>Contact</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>John</td>
+									<td>Carter</td>
+									<td>johncarter@mail.com</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Peter</td>
+									<td>Parker</td>
+									<td>peterparker@mail.com</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>John</td>
+									<td>Rambo</td>
+									<td>johnrambo@mail.com</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="form-body">
+						<div data-example-id="simple-form-inline"> 
+							<form class="form-inline"> 
+								<div class="form-group"> 
+									<input type="name" class="form-control" id="exampleInputName3" placeholder="Name"> 
 								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<input type="submit" name="Sign In" value="Sign In">
-						</form>
+								<div class="form-group"> 
+									<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email"> 
+								</div> 
+								<div class="form-group"> 
+									<input type="type" class="form-control" id="exampleInputcontact3" placeholder="Contact No."> 
+								</div> 
+								<div class="checkbox"> 
+									<label> <input type="checkbox"> Remember me </label> 
+								</div> <button type="submit" class="btn btn-default">Add</button> 
+							</form> 
+						</div>
 					</div>
 				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<div class="inline-form widget-shadow">
+					<div class="form-title">
+						<h4>Add Resource Provider</h4>
+					</div>
+					<div class="bs-example">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Sr. No.</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Shelter</th>
+									<th>Email</th>
+									<th>Contact</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>John</td>
+									<td>Carter</td>
+									<td>johncarter@mail.com</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Peter</td>
+									<td>Parker</td>
+									<td>peterparker@mail.com</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>John</td>
+									<td>Rambo</td>
+									<td>johnrambo@mail.com</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="form-body">
+						<div data-example-id="simple-form-inline"> 
+							<form class="form-inline"> 
+								<div class="form-group"> 
+									<input type="name" class="form-control" id="exampleInputName3" placeholder="Name"> 
+								</div>
+								<div class="form-group"> 
+									<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email"> 
+								</div> 
+								<div class="form-group"> 
+									<input type="text" class="form-control" id="exampleInputContact3" placeholder="Contact No."> 
+								</div> 
+								<div class="checkbox"> 
+									<label> <input type="checkbox"> Remember me </label> 
+								</div> 
+								<button type="submit" class="btn btn-default">Sign in</button> 
+							</form> 
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+				
+
+
 
 			</div>
 		</div>
@@ -291,6 +459,7 @@
 		<div class="footer">
 			<p>&copy; 2018 e-KrisenSeva All Rights Reserved | Design by Team An0nymoX</p>
 		</div>
+
 		<!--//footer-->
 	</div>
 
@@ -330,33 +499,6 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.js"> </script>
-	<!-- //Bootstrap Core JavaScript -->
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#loginForm').submit(function(event) {
-				console.log(serverName);
-				event.preventDefault();
-				$.ajax({
-					crossDomain: true,
-					xhrFields:{
-						withCredentials: true
-					},
-					type: 'post',
-					url: serverName + "php/RequestHandler.php?action=login",
-					data: $('#loginForm').serialize(),
-					dataType:  'json',
-					success: function(data){
-						if(data == "loginError")
-							console.log("Inccorect username or password.");
-						else
-							window.location.href = data;
-						console.log(data);
-					}
-				});
-			});
-		});
-	</script>
 
 </body>
 </html>
