@@ -2273,7 +2273,7 @@ h4.modal-title {
 	padding:0;
 }
 .col-md-3.widget {
-  width: 23.5%;
+  width: 48%;
     -webkit-transition: 0.5s all;
     -moz-transition:  0.5s all;
     -o-transition:  0.5s all;
@@ -6447,7 +6447,7 @@ h4.asd label {
 		line-height: 60px;
 	}
 	.r3_counter_box {
-		padding: 15px 10px;
+		padding: 20px 25px;
 	}
 	ul.bt-list li a {
 		padding: .6em 1em;
@@ -6684,15 +6684,7 @@ h4.asd label {
 		margin-left: 22%;
 	}
 	.col-md-3.widget {
-		width: 32%;
-		margin-right: 2%;
-		margin-bottom: 2%;
-	}
-	.col-md-3.widget:nth-child(3){
-		margin-right: 0%;
-	}
-	.col-md-3.widget:nth-child(4),.col-md-3.widget:nth-child(5){
-		margin-bottom: 0%;
+		width: 49%;
 	}
 	.row-one .content-top-2.card {
 		width: 100%;
@@ -7143,7 +7135,7 @@ h4.asd label {
 		margin-right: 10px;
 	}
 	.col-md-3.widget {
-		width: 48%;
+		width: 100%;
 		margin-right: 2%;
 		margin-bottom: 2%;
 	}
@@ -7839,7 +7831,7 @@ h4.asd label {
 		margin-right: 0em;
 	}
 	.cbp-spmenu-push div#page-wrapper {
-		padding: 9em 1em 2em;
+		padding: 1em 1em 2em;
 	}
 	.input__label {
 		width: 90%;
@@ -7912,7 +7904,7 @@ h4.asd label {
 		line-height: 55px;
 	}
 	.r3_counter_box {
-		padding: 9px 8px;
+		padding: 20px 50px;
 	}
 	.google-plus,.twitter,.facebook {
 		padding: .5em 1em;

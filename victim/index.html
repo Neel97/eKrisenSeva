@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>e-KrisenSeva</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+
+	<!-- font-awesome icons CSS-->
+	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<!-- //font-awesome icons CSS-->
+
+	<!-- side nav css file -->
+	<link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
+	<!-- side nav css file -->
+
+	<!-- js-->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/custom/server.config.js"></script>
+
+
+	<!--webfonts-->
+	<!-- <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet"> -->
+	<!--//webfonts-->
+
+	<!-- Metis Menu -->
+
+	<link href="css/custom.css" rel="stylesheet">
+	<!--//Metis Menu -->
+
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		
+		<!-- main content start-->
+		<div id="page-wrapper">
+			
+			<div class="main-page">
+				
+					<div class="main-page login-page ">
+						<h2 class="title1">e-KrisenSeva</h2>
+						<div class="widget-shadow">
+							<div class="login-body">
+								<div class="col_3">
+					<div class="col-md-3 widget widget1">
+						<div class="r3_counter_box">
+							<i class="pull-left fa fa-map-marker icon-rounded"></i>
+							<div class="stats">
+								<h5><strong>&nbsp;Map</strong></h5>
+								<span></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 widget widget1">
+						<div class="r3_counter_box">
+							<i class="pull-left fa fa-home user1 icon-rounded"></i>
+							<div class="stats">
+								<h5><strong>&nbsp;Shelter</strong></h5>
+								<span></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 widget widget1">
+						<div class="r3_counter_box">
+							<i class="pull-left fa fa-question user2 icon-rounded"></i>
+							<div class="stats">
+								<h5><strong>&nbsp;FAQ</strong></h5>
+								<span></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 widget widget1">
+						<div class="r3_counter_box">
+							<i class="pull-left fa fa-phone dollar1 icon-rounded"></i>
+							<div class="stats">
+								<h5><strong>&nbsp;Helpline</strong></h5>
+								<span></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="clearfix"> </div>
+					<br>
+					<center>
+						<input type="button" class="btn btn-primary" value="Login">&nbsp;
+						<input type="button" class="btn btn-primary" value="Signup">
+					</center>
+				</div>
+							</div>
+						</div>
+
+					</div>
+				
+
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<p>&copy; 2018 e-KrisenSeva All Rights Reserved | Design by Team An0nymoX</p>
+		</div>
+		<!--//footer-->
+	</div>
+
+	<!-- side nav js -->
+	<script src='js/SidebarNav.min.js' type='text/javascript'></script>
+	<script>
+		$('.sidebar-menu').SidebarNav()
+	</script>
+	<!-- //side nav js -->
+
+	<!-- Classie --><!-- for toggle left push menu script -->
+	<script src="js/classie.js"></script>
+	<script>
+		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		showLeftPush = document.getElementById( 'showLeftPush' ),
+		body = document.body;
+
+		showLeftPush.onclick = function() {
+			classie.toggle( this, 'active' );
+			classie.toggle( body, 'cbp-spmenu-push-toright' );
+			classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			disableOther( 'showLeftPush' );
+		};
+
+		function disableOther( button ) {
+			if( button !== 'showLeftPush' ) {
+				classie.toggle( showLeftPush, 'disabled' );
+			}
+		}
+	</script>
+	<!-- //Classie --><!-- //for toggle left push menu script -->
+
+	<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js"> </script>
+	<!-- //Bootstrap Core JavaScript -->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#loginForm').submit(function(event) {
+				console.log(serverName);
+				event.preventDefault();
+				$.ajax({
+					crossDomain: true,
+					xhrFields:{
+						withCredentials: true
+					},
+					type: 'post',
+					url: serverName + "php/RequestHandler.php?action=login",
+					data: $('#loginForm').serialize(),
+					dataType:  'json',
+					success: function(data){
+						if(data == "loginError")
+							console.log("Inccorect username or password.");
+						else
+							window.location.href = data;
+						console.log(data);
+					}
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>
