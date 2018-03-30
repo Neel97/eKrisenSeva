@@ -84,6 +84,7 @@
 
 	});
 
+
 </script>
 <!-- //pie-chart --><!-- index page sales reviews visitors pie chart -->
 
@@ -536,31 +537,10 @@
 					<div class="col-md-4 span_8">
 						<div class="activity_box activity_box1">
 							<h3>Global Chat</h3>
-							<div class="scrollbar" id="style-3">
-								<div class="activity-row activity-row1">
-									<div class="col-xs-3 activity-img"><img src='images/1.jpg' class="img-responsive" alt=""/><span>06:01 AM</span></div>
-									<div class="col-xs-5 activity-img1">
-										<div class="activity-desc-sub">
-											<h5>Michael Chris</h5>
-											<p>Hello ! this is Michael chris</p>
-										</div>
-									</div>
-									<div class="col-xs-4 activity-desc1"></div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="activity-row activity-row1">
-									<div class="col-xs-2 activity-desc1"></div>
-									<div class="col-xs-7 activity-img2">
-										<div class="activity-desc-sub1">
-											<h5>Alexander</h5>
-											<p>Hi,How are you ? What about our next meeting?</p>
-										</div>
-									</div>
-									<div class="col-xs-3 activity-img"><img src='images/3.jpg' class="img-responsive" alt=""/><span>06:02 AM</span></div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="activity-row activity-row1">
-									<div class="col-xs-3 activity-img"><img src='images/1.jpg' class="img-responsive" alt=""/><span>06:05 AM</span></div>
+							<div class="scrollbar chatbox" id="style-3">
+								
+								<div class="activity-row activity-row1 chat_msg">
+									<div class="col-xs-3 activity-img chat_msg_time"><span>06:05 AM</span></div>
 									<div class="col-xs-5 activity-img1">
 										<div class="activity-desc-sub">
 											<h5>Michael Chris</h5>
@@ -570,22 +550,25 @@
 									<div class="col-xs-4 activity-desc1"></div>
 									<div class="clearfix"> </div>
 								</div>
+
+
+
 								<div class="activity-row activity-row1">
 									<div class="col-xs-2 activity-desc1"></div>
 									<div class="col-xs-7 activity-img2">
 										<div class="activity-desc-sub1">
-											<h5>Alexander</h5>
+											<h5>You</h5>
 											<p>Wow that's great</p>
 										</div>
 									</div>
-									<div class="col-xs-3 activity-img"><img src='images/3.jpg' class="img-responsive" alt=""/><span>06:20 PM</span></div>
+									<div class="col-xs-3 activity-img"><span>06:20 PM</span></div>
 									<div class="clearfix"> </div>
 								</div>
 							</div>
-							<form action="#" method="post">
-								<input type="text" value="Enter your text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your text';}" required="">
-								<input type="submit" value="Send"/>		
-							</form>
+							
+							<input type="text" id="chattext">
+							<input type="button" class="btn btn-primary" id="sendchat" value="Send">		
+							
 						</div>
 					</div>
 					<div class="col-md-4 span_8">
@@ -660,7 +643,7 @@
 								</div>
 							</div>
 							<form action="#" method="post">
-								<input type="text" value="Enter your text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your text';}" required="">
+								<input type="text"  value="Enter your text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your text';}" required="">
 								<input type="submit" value="Submit"/>		
 							</form>
 						</div>
@@ -680,34 +663,75 @@
 	<!--//footer-->
 
 
-<!-- new added graphs chart js-->
+	<!-- new added graphs chart js-->
 
-<script src="js/Chart.bundle.js"></script>
-<script src="js/utils.js"></script>
-
-
-<!-- new added graphs chart js-->
-
-<!-- Classie --><!-- for toggle left push menu script -->
-<script src="js/classie.js"></script>
-<script>
-	var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-	showLeftPush = document.getElementById( 'showLeftPush' ),
-	body = document.body;
-
-	showLeftPush.onclick = function() {
-		classie.toggle( this, 'active' );
-		classie.toggle( body, 'cbp-spmenu-push-toright' );
-		classie.toggle( menuLeft, 'cbp-spmenu-open' );
-		disableOther( 'showLeftPush' );
-	};
+	<script src="js/Chart.bundle.js"></script>
+	<script src="js/utils.js"></script>
 
 
-	function disableOther( button ) {
-		if( button !== 'showLeftPush' ) {
-			classie.toggle( showLeftPush, 'disabled' );
+	<!-- new added graphs chart js-->
+
+	<!-- Classie --><!-- for toggle left push menu script -->
+	<script src="js/classie.js"></script>
+	<script>
+		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		showLeftPush = document.getElementById( 'showLeftPush' ),
+		body = document.body;
+
+		showLeftPush.onclick = function() {
+			classie.toggle( this, 'active' );
+			classie.toggle( body, 'cbp-spmenu-push-toright' );
+			classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			disableOther( 'showLeftPush' );
+		};
+
+
+		function disableOther( button ) {
+			if( button !== 'showLeftPush' ) {
+				classie.toggle( showLeftPush, 'disabled' );
+			}
 		}
-	}
+
+
+
+
+		$(document).ready(function(){
+			$("#sendchat").click(function(){
+				var length = $("#chattext").val().length;
+				console.log(length);
+				if (length <1) 
+				{
+					console.log("LENGTH LESS");
+				} 
+				else 
+				{
+
+						msgData = {
+							"name": $('user_name').html(),
+							'text': $('#chattext').val()
+						}
+
+					// $.ajax({
+					// 	crossDomain: true,
+					// 	xhrFields:{
+					// 		withCredentials: true
+					// 	},
+					// 	type: 'post',
+					// 	url: serverName + "php/RequestHandler.php?action=login",
+					// 	data: msgData,
+					// 	dataType:  'json',
+					// 	success: function(data){
+					// 		if(data == "loginError")
+					// 			console.log("Inccorect username or password.");
+					// 		else
+					// 			window.location.href = data;
+
+					// 	}
+					// });
+				}
+			});
+		});
+
 </script>
 <!-- //Classie --><!-- //for toggle left push menu script -->
 
