@@ -330,6 +330,10 @@
 			</div>
 			<div class="header-right">
 
+				<input type="hidden" name="loginUserId" id="loginUserId">
+
+				
+
 
 				<!--search-box-->
 				<!-- <div class="search-box">
@@ -696,6 +700,34 @@
 
 
 		$(document).ready(function(){
+
+			function getGlobalChat()
+			{
+
+				userData = {"loginUserId": $('#loginUserId').html();}
+
+
+				$.ajax({
+					crossDomain: true,
+					xhrFields:{
+						withCredentials: true
+					},
+					type: 'post',
+					url: serverName + "php/RequestHandler.php?action=getAllChat",
+					data: userData,
+					dataType:  'json',
+					success: function(data){
+						if(data == "loginError")
+							console.log("Data error");
+						else
+						{
+							alert(JSON.stringify(data));
+									//append to div
+								}
+							}
+						});
+			}
+
 			$("#sendchat").click(function(){
 				var length = $("#chattext").val().length;
 				console.log(length);
@@ -706,55 +738,59 @@
 				else 
 				{
 
-						msgData = {
-							"name": $('user_name').html(),
-							'text': $('#chattext').val()
-						}
+					msgData = {
+						"loginUserId": $('#loginUserId').html(),
+						'text': $('#chattext').val(),
+						'user_type': $("#user_type").html()
+					}
 
-					// $.ajax({
-					// 	crossDomain: true,
-					// 	xhrFields:{
-					// 		withCredentials: true
-					// 	},
-					// 	type: 'post',
-					// 	url: serverName + "php/RequestHandler.php?action=login",
-					// 	data: msgData,
-					// 	dataType:  'json',
-					// 	success: function(data){
-					// 		if(data == "loginError")
-					// 			console.log("Inccorect username or password.");
-					// 		else
-					// 			window.location.href = data;
 
-					// 	}
-					// });
+					$.ajax({
+						crossDomain: true,
+						xhrFields:{
+							withCredentials: true
+						},
+						type: 'post',
+						url: serverName + "php/RequestHandler.php?action=sendMsg",
+						data: msgData,
+						dataType:  'json',
+						success: function(data){
+							if(data == "loginError")
+								console.log("Data error");
+							else
+							{
+								alert(JSON.stringify(data));
+									//append to div
+								}
+							}
+						});
 				}
 			});
 		});
 
-</script>
-<!-- //Classie --><!-- //for toggle left push menu script -->
+	</script>
+	<!-- //Classie --><!-- //for toggle left push menu script -->
 
-<!--scrolling js-->
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
-<!--//scrolling js-->
+	<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
 
-<!-- side nav js -->
-<script src='js/SidebarNav.min.js' type='text/javascript'></script>
-<script>
-	$('.sidebar-menu').SidebarNav()
-</script>
-<!-- //side nav js -->
+	<!-- side nav js -->
+	<script src='js/SidebarNav.min.js' type='text/javascript'></script>
+	<script>
+		$('.sidebar-menu').SidebarNav()
+	</script>
+	<!-- //side nav js -->
 
-<!-- for index page weekly sales java script -->
+	<!-- for index page weekly sales java script -->
 
-<!-- //for index page weekly sales java script -->
+	<!-- //for index page weekly sales java script -->
 
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.js"> </script>
-<!-- //Bootstrap Core JavaScript -->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js"> </script>
+	<!-- //Bootstrap Core JavaScript -->
 
 
 

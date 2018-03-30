@@ -69,7 +69,7 @@ function getUserNameType(){
 	$sql = "SELECT fname, lname FROM contact_details WHERE contact_id = (SELECT contact_id FROM " . $_SESSION['user_type'] . "  WHERE " . $_SESSION['user_type'] . "_id = " . $_SESSION['user_id'] . ");";
 	if($db -> num_rows($sql) > 0){
 		$name = implode(" ", $db -> get_row($sql));
-		response_json(array($name, $_SESSION['user_type']));
+		response_json(array($name, $_SESSION['user_type'],$_SESSION));
 	}
 }
 

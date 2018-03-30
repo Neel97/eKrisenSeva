@@ -10,7 +10,7 @@ function user_login($args){
 	else
 		die("eKrisenSeva: empty params for users_login()");
 	
-	$sql = "SELECT uid, type FROM users WHERE uname = '" . $args['email'] . "' AND pass = '" . $args['password']. "' AND status=1";
+	$sql = "SELECT 	uid, type,users_id FROM users WHERE uname = '" . $args['email'] . "' AND pass = '" . $args['password']. "' AND status=1";
 	// $db -> show_query($sql);
 	if($db -> num_rows($sql) > 0){
 		$id = $db -> get_row($sql);
@@ -33,6 +33,7 @@ function user_login($args){
 		$_SESSION['sid'] = session_id();
 		$_SESSION['user_type'] = rtrim($id[1]);
 		$_SESSION['user_id'] = $id[0];
+		$_SESSION['userLoginId'] = $id[2];
 
 		$sql = "SELECT contact_id FROM " . rtrim($id[1]) . " WHERE status = 1 AND " . rtrim($id[1]) . "_id = " . $id[0];
 		// $db -> show_query($sql);

@@ -4,8 +4,8 @@
 if($_SERVER['SERVER_NAME'] == "localhost"){
 	define( 'DB_HOST', 'localhost' ); // set database host
  	define( 'DB_USER', 'root' ); // set database user
- 	define( 'DB_PASS', '' ); // set database password
- 	define( 'DB_NAME', 'eKrisenSeva' ); // set database name
+ 	define( 'DB_PASS', '12' ); // set database password
+ 	define( 'DB_NAME', 'ekrisenseva' ); // set database name
  	define( 'DISPLAY_DEBUG', true ); //display db errors?
 }
 else{

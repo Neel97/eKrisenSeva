@@ -6,7 +6,7 @@ require_once('classes/file_upload.php');
 require_once('LoginControl.php');
 require_once('ResponseHandler.php');
 require_once('common_functions.php');
-
+require_once('chatController.php');
 
 switch ($_GET['action']) {
 	case 'login':
@@ -29,6 +29,16 @@ switch ($_GET['action']) {
 	case 'getUserNameType':
 		getUserNameType();			//common_functions.php
 		break;
+
+	case 'sendMsg':
+
+		sendMsg($_POST);			//ChatController.php
+		break;
+
+	case 'getAllChat':
+		getAllChat($_POST);
+
+	break;
 
 	case 'getUserProfile':
 		getUserProfile();			//common_functions.php
