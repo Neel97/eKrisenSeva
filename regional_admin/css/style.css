@@ -8473,3 +8473,8 @@ h4.asd label {
     border-color: #f1f1f1;
 }
 
+/*custom*/
+h2.head_center {
+    text-align: center;
+    padding-bottom: 4%;
+}
