@@ -1,5 +1,10 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
+
 require_once('classes/config.db.php');
 require_once('classes/class.db.php');
 require_once('classes/file_upload.php');

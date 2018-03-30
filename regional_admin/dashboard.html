@@ -704,7 +704,7 @@
 			function getGlobalChat()
 			{
 
-				userData = {"loginUserId": $('#loginUserId').html();}
+				userData = {"loginUserId": $('#loginUserId').html()};
 
 
 				$.ajax({
@@ -727,6 +727,8 @@
 							}
 						});
 			}
+
+			getGlobalChat();
 
 			$("#sendchat").click(function(){
 				var length = $("#chattext").val().length;

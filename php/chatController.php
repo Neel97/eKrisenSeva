@@ -18,6 +18,8 @@ function sendmsg($msgDetails)
 function getAllChat($userData)
 {
 	$db = new DB();
+
+
 	$where = array('sender_id'=>$userData['loginUserId']);
 	$query = "SELECT * FROM chat_logs WHERE sender_id='".$userData['loginUserId']."' OR receiver_id=0";
 	$data = $db->get_results($query);
@@ -26,8 +28,9 @@ function getAllChat($userData)
 	$response['normalChat'] = array();
 
 	foreach ($data as $key => $value) {
-		$sql = "SELECT fname, lname FROM contact_details WHERE status = 1 AND contact_id = (SELECT contact_id FROM $data['sender_type'] WHERE status = 1 AND $data['sender_type']_id = (SELECT uid FROM users WHERE status = 1 AND users_id = $data['sender_id']))";
-		$db > show_query($sql);
+
+		$sql = "SELECT fname, lname FROM contact_details WHERE status = 1 AND contact_id = (SELECT contact_id FROM ".$value['sender_type']." WHERE status = 1 AND ".$value['sender_type']."_id = (SELECT uid FROM users WHERE status = 1 AND users_id = ".$value['sender_id']."))";
+	
 		$name = $db -> get_row($sql);
 		
 		$value['isReceived'] = false;
@@ -36,7 +39,7 @@ function getAllChat($userData)
 		
 		if($value['sender_id'] !=$where['sender_id'])
 			$value['isReceived'] = true;
-		$value['receiver_id']==0?array_push($response['globalChat']):array_push($response['normalChat']);
+		$value['receiver_id']==0?array_push($response['globalChat'],$value):array_push($response['normalChat'],$value);
 		
 	}
 	response_json(array($response));
